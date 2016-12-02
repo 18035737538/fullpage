@@ -1,0 +1,47 @@
+$(function(){
+
+    $("#fullpage").fullpage({
+        anchors: ['firstPage', 'secondPage', 'thirdPage', 'fourthPage', 'fifthPage','sixthPage','seventhPage','eighthPage','ninthPage','tenthPage'],
+        menu: '#buttons',
+        afterLoad:function(anchorLink,index){
+          if(index==1){
+              $(".section").find(".group").css({
+                  transform:"scale(1,1)",
+                  opacity:1
+              })
+              $(".section").find(".bg1-1").css({
+                  bottom:90,
+                  opacity:1
+              })
+              $(".section").find(".bg1-2").css({
+                  bottom:0,
+                  opacity:1
+              })
+              $(".section").find(".email").css({
+                  top:26,
+                  opacity:1
+              })
+          }
+        },
+        onLeave:function(index,next,dir){
+            if(index==1){
+                $(".section").find(".group").css({
+                    transform:"scale(0.5,0.5)",
+                    opacity:0
+                })
+                $(".section").find(".bg1-1").css({
+                    bottom:-392,
+                    opacity:0
+                })
+                $(".section").find(".bg1-2").css({
+                    bottom:-377,
+                    opacity:0
+                })
+                $(".section").find(".email").css({
+                    top:-26,
+                    opacity:0
+                })
+            }
+        }
+    })
+});
